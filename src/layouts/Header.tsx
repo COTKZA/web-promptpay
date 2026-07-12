@@ -47,7 +47,7 @@ const Header = () => {
                 <span>สร้าง QR</span>
               </NavLink>
             </li>
-            <li className="flex items-center gap-2 px-3 py-2">
+            <li className="px-3 py-2">
               <NavLink
                 to="/payment/slip-verification"
                 className={({ isActive }) =>
@@ -61,88 +61,84 @@ const Header = () => {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => setMenu(true)}
-            type="button"
-            className="block md:hidden"
-          >
+        <div className="block md:hidden items-center gap-2">
+          <button onClick={() => setMenu(true)} type="button">
             <MdMenu className="text-xl" />
           </button>
         </div>
+      </div>
 
-        {menu && (
-          <div
-            className="fixed inset-0 bg-black/40 z-40 md:hidden"
-            onClick={() => setMenu(false)}
-          ></div>
-        )}
-
+      {menu && (
         <div
-          className={`fixed top-0 right-0 h-full w-64 bg-white z-50 shadow-xl transform transition-transform duration-300 ease-in-out md:hidden ${
-            menu ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <div className="flex items-center justify-between px-4 h-16 border-b border-gray-200">
-            <span className="font-bold text-lg">เมนู</span>
-            <button onClick={() => setMenu(false)} type="button">
-              <MdClose className="text-2xl text-gray-600" />
-            </button>
-          </div>
+          className="fixed inset-0 bg-black/40 z-40 md:hidden"
+          onClick={() => setMenu(false)}
+        ></div>
+      )}
 
-          <nav className="p-4">
-            <ul className="flex flex-col gap-2">
-              <li>
-                <NavLink
-                  to="/"
-                  onClick={() => setMenu(false)}
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 px-4 py-3 rounded-lg font-semibold transition ${
-                      isActive
-                        ? "bg-sky-50 text-sky-500"
-                        : "text-gray-600 hover:bg-gray-100"
-                    }`
-                  }
-                >
-                  <IoHomeSharp className="text-xl" />
-                  <span>Docs</span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/payment/qrcode"
-                  onClick={() => setMenu(false)}
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 px-4 py-3 rounded-lg font-semibold transition ${
-                      isActive
-                        ? "bg-sky-50 text-sky-500"
-                        : "text-gray-600 hover:bg-gray-100"
-                    }`
-                  }
-                >
-                  <MdOutlineQrCode2 className="text-xl" />
-                  <span>สร้าง QR</span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/payment/slip-verification"
-                  onClick={() => setMenu(false)}
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 px-4 py-3 rounded-lg font-semibold transition ${
-                      isActive
-                        ? "bg-sky-50 text-sky-500"
-                        : "text-gray-600 hover:bg-gray-100"
-                    }`
-                  }
-                >
-                  <RiQrScan2Line className="text-xl" />
-                  <span>เช็คสลิป</span>
-                </NavLink>
-              </li>
-            </ul>
-          </nav>
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-white z-50 shadow-xl transform transition-transform duration-300 ease-in-out md:hidden ${
+          menu ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex items-center justify-between px-4 h-16 border-b border-gray-200">
+          <span className="font-bold text-lg">เมนู</span>
+          <button onClick={() => setMenu(false)} type="button">
+            <MdClose className="text-2xl text-gray-600" />
+          </button>
         </div>
+
+        <nav className="p-4">
+          <ul className="flex flex-col gap-2">
+            <li>
+              <NavLink
+                to="/"
+                onClick={() => setMenu(false)}
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-3 rounded-lg font-semibold transition ${
+                    isActive
+                      ? "bg-sky-50 text-sky-500"
+                      : "text-gray-600 hover:bg-gray-100"
+                  }`
+                }
+              >
+                <IoHomeSharp className="text-xl" />
+                <span>Docs</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/payment/qrcode"
+                onClick={() => setMenu(false)}
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-3 rounded-lg font-semibold transition ${
+                    isActive
+                      ? "bg-sky-50 text-sky-500"
+                      : "text-gray-600 hover:bg-gray-100"
+                  }`
+                }
+              >
+                <MdOutlineQrCode2 className="text-xl" />
+                <span>สร้าง QR</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/payment/slip-verification"
+                onClick={() => setMenu(false)}
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-3 rounded-lg font-semibold transition ${
+                    isActive
+                      ? "bg-sky-50 text-sky-500"
+                      : "text-gray-600 hover:bg-gray-100"
+                  }`
+                }
+              >
+                <RiQrScan2Line className="text-xl" />
+                <span>เช็คสลิป</span>
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
   );
