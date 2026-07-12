@@ -29,7 +29,7 @@ const Home = () => {
             }
             }
         },
-        "contact": { "website": "promptpay.jirasak.com", "่facebook": "Jirasak Suktakua" }
+        "contact": { "website": "promptpay.jirasak.com", "facebook": "Jirasak Suktakua" }
         }`;
 
   const handleRquestExampleCopy = () => {
@@ -530,7 +530,7 @@ const Home = () => {
                 <span className="text-gray-300">, </span>
                 <span className="text-sky-400">"facebook"</span>
                 <span className="text-gray-300">: </span>
-                <span className="text-emerald-400">"๋Jirasak Suktakua"</span>
+                <span className="text-emerald-400">"Jirasak Suktakua"</span>
                 <span className="text-white">{" }"}</span>
                 {"\n"}
                 <span className="text-white">{"}"}</span>
