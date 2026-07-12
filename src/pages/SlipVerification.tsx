@@ -63,9 +63,9 @@ const SlipVerification = () => {
     } catch (error: any) {
       toastError(error.response?.data?.error);
       toastError(error.response?.data?.message);
+      toastError(error.response?.data?.error?.message);
     } finally {
       setSlipLoading(false);
-      setQrData("");
     }
   };
 
