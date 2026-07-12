@@ -120,7 +120,7 @@ const SlipVerification = () => {
               disabled={slipLoading}
               className="w-full px-3 py-2 bg-gray-800 hover:bg-gray-900 rounded-xl text-md font-bold text-white"
             >
-              ตรวจสอบสลิป
+              {slipLoading ? "กำลังตรวจสอบสลิป" : "ตรวจสอบสลิป"}
             </button>
           </form>
         </div>
