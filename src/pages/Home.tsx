@@ -29,7 +29,7 @@ const Home = () => {
             }
             }
         },
-        "contact": { "website": "promptpay.jirasak.com", "facebook": "Jirasak Suktakua" }
+        "contact": { "website": "promptpay.jirasak.com" }
         }`;
 
   const handleRquestExampleCopy = () => {
@@ -372,20 +372,6 @@ const Home = () => {
                     promptpay.jirasak.com
                   </td>
                 </tr>
-
-                <tr className="border-t border-[#3F3F46]">
-                  <td className="px-4 py-3 text-sky-400 font-mono text-sm">
-                    contact.facebook
-                  </td>
-                  <td className="px-3 py-3">
-                    <div className="bg-sky-900 border border-sky-500 text-center text-sky-300 font-medium px-1 py-1 rounded-md">
-                      string
-                    </div>
-                  </td>
-                  <td className="px-4 py-3 text-gray-300 text-sm text-nowrap">
-                    Jirasak Suktakua
-                  </td>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -527,11 +513,6 @@ const Home = () => {
                 <span className="text-emerald-400">
                   "promptpay.jirasak.com"
                 </span>
-                <span className="text-gray-300">, </span>
-                <span className="text-sky-400">"facebook"</span>
-                <span className="text-gray-300">: </span>
-                <span className="text-emerald-400">"Jirasak Suktakua"</span>
-                <span className="text-white">{" }"}</span>
                 {"\n"}
                 <span className="text-white">{"}"}</span>
               </code>
