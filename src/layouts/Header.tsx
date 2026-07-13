@@ -11,15 +11,8 @@ const Header = () => {
     <header className="h-16 bg-white border-b border-gray-300">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4">
         <NavLink to="/">
-          <div className="flex items-center justify-center gap-2">
-            {/* <div className="bg-linear-to-r from-emerald-400 to-cyan-400 px-1 py-1 rounded-md">
-              <PiQrCodeFill className="text-2xl text-white" />
-            </div> */}
-            <span className="font-bold text-xl xl:text-2xl flex gap-2">
-              <span className="text-red-400">Jirasak</span>
-              <span className="text-sky-600">Prompt</span>
-              <span className="text-gray-900">Pay</span>
-            </span>
+          <div className="shrink-0 flex items-center">
+            <img src="/images/icons/logo.png" alt="logo" className="h-18 w-auto object-contain" />
           </div>
         </NavLink>
 
