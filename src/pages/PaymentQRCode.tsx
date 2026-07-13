@@ -8,6 +8,12 @@ import { ToastContainer } from "react-toastify";
 const PaymentQRCode = () => {
   const [promptpayId, setPromptpayId] = useState<string>("");
   const [amount, setAmount] = useState<number | undefined>(undefined);
+
+  const [generatedPromptPayId, setGeneratedPromptPayId] = useState<string>("");
+  const [generatedAmount, setGeneratedAmount] = useState<number | undefined>(
+    undefined,
+  );
+
   const [qrImage, setQrImage] = useState<string>("");
 
   const handleGenerateQR: SubmitEventHandler<HTMLFormElement> = async (e) => {
@@ -30,6 +36,9 @@ const PaymentQRCode = () => {
     const qr = await QRCode.toDataURL(payload);
 
     setQrImage(qr);
+
+    setGeneratedPromptPayId(promptpayId);
+    setGeneratedAmount(amount);
   };
 
   // copy image
@@ -122,10 +131,10 @@ const PaymentQRCode = () => {
 
             <div className="flex flex-col items-center gap-0.5">
               <span className="text-gray-800 font-bold">
-                พร้อมเพย์: {promptpayId}
+                พร้อมเพย์: {generatedPromptPayId}
               </span>
               <span className="text-gray-800 font-bold">
-                จำนวนเงิน: {amount ?? "ไม่ได้กำหนด หรือ 0"} บาท
+                จำนวนเงิน: {generatedAmount ?? "ไม่ได้กำหนด หรือ 0"} บาท
               </span>
             </div>
 
