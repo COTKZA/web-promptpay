@@ -513,6 +513,7 @@ const Home = () => {
                 <span className="text-emerald-400">
                   "promptpay.jirasak.com"
                 </span>
+                <span className="text-white">{"} "}</span>
                 {"\n"}
                 <span className="text-white">{"}"}</span>
               </code>
