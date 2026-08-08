@@ -281,7 +281,7 @@ const Home = () => {
                   </td>
                   <td className="px-3 py-3">
                     <div className="bg-sky-900 border border-sky-500 text-center text-sky-300 font-medium px-1 py-1 rounded-md">
-                      string|null
+                      string | null
                     </div>
                   </td>
                   <td className="px-4 py-3 text-gray-300 text-sm text-nowrap">
@@ -323,7 +323,7 @@ const Home = () => {
                   </td>
                   <td className="px-3 py-3">
                     <div className="bg-sky-900 border border-sky-500 text-center text-sky-300 font-medium px-1 py-1 rounded-md">
-                      string|null
+                      string | null
                     </div>
                   </td>
                   <td className="px-4 py-3 text-gray-300 text-sm text-nowrap">
