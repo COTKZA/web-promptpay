@@ -24,7 +24,7 @@ const PaymentQRCode = () => {
       return;
     }
 
-    if (promptpayId.trim().length !== 10) {
+    if (promptpayId.trim().length >= 10) {
       toastWarning("กรุณากรอกเบอร์โทร 10 หลัก หรือ บัตรประชาชน 13 หลัก");
       return;
     }
