@@ -7,9 +7,9 @@ import axios from "axios";
 
 const SlipVerification = () => {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
-  // const [imageFile, setImageFile] = useState<File | null>(null);
 
   const [qrData, setQrData] = useState<string>("");
+  const [amount, setAmount] = useState<number>();
   const [slipLoading, setSlipLoading] = useState<boolean>(false);
   const [response, setResponse] = useState<any>(null);
 
@@ -31,7 +31,6 @@ const SlipVerification = () => {
       });
       setQrData(String(result.data));
 
-      // setImageFile(file);
       setImagePreview(URL.createObjectURL(file));
     } catch (error: any) {
       toastError("ไม่พบ QR Code ในภาพ");
@@ -46,25 +45,35 @@ const SlipVerification = () => {
       return;
     }
 
+    if (!amount) {
+      toastWarning("กรุณาระบุจำนวนเงิน");
+      return;
+    }
+
+    const timeoutId = setTimeout(() => {
+      toastWarning("กรุณาตรวจสอบว่าจำนวนเงินตรงกับสลิปหรือไม่");
+      setSlipLoading(false);
+    }, 5000);
+
     try {
       setSlipLoading(true);
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}`,
+        `${import.meta.env.VITE_SLIP_VERIFY_URL}/${amount}/no_slip`,
         {
-          qrData: qrData,
-        },
-        {
-          headers: {
-            "x-api-key": import.meta.env.VITE_API_KEY,
-          },
+          qrcode_data: qrData,
+          tos: true,
+          privacy: true,
+          eula: true,
         },
       );
+
       setResponse(res.data);
     } catch (error: any) {
       toastError(error.response?.data?.error);
       toastError(error.response?.data?.message);
       toastError(error.response?.data?.error?.message);
     } finally {
+      clearTimeout(timeoutId);
       setSlipLoading(false);
     }
   };
@@ -107,12 +116,34 @@ const SlipVerification = () => {
             )}
 
             {qrData && (
-              <div className="text-center mb-4 mt-4">
-                <span className="text-sky-400 font-bold">QrData:</span>
-                <span className="ml-2 text-gray-600 break-all whitespace-pre-wrap">
-                  {qrData ?? "ยังไม่มี"}
-                </span>
-              </div>
+              <>
+                <div className="mb-4">
+                  <label
+                    htmlFor="amount"
+                    className=" block text-sm font-medium mb-2"
+                  >
+                    จำนวนเงิน (บาท)
+                  </label>
+                  <input
+                    type="number"
+                    id="amount"
+                    name="amount"
+                    value={amount}
+                    onChange={(e) => setAmount(Number(e.target.value))}
+                    step={1}
+                    placeholder="0.00"
+                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-base transition focus:outline-none focus:border-sky-600 focus:ring-2 focus:ring-sky-100"
+                    required
+                  />
+                </div>
+
+                <div className="text-center mb-4 mt-4">
+                  <span className="text-sky-400 font-bold">QrData:</span>
+                  <span className="ml-2 text-gray-600 break-all whitespace-pre-wrap">
+                    {qrData ?? "ยังไม่มี"}
+                  </span>
+                </div>
+              </>
             )}
 
             <button
@@ -124,6 +155,19 @@ const SlipVerification = () => {
               {slipLoading ? "กำลังตรวจสอบสลิป" : "ตรวจสอบสลิป"}
             </button>
           </form>
+
+          <div className="pt-2 border-t border-gray-100 text-center text-xs text-gray-400">
+            Slip Verify by{" "}
+            <a
+              href="https://ko-fi.com/oiio_service"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="API Provider Website"
+              className="text-blue-500 underline hover:text-blue-600"
+            >
+              OIIO
+            </a>
+          </div>
         </div>
 
         {response && (

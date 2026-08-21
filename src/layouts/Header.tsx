@@ -18,7 +18,7 @@ const Header = () => {
 
         <nav className="hidden md:block">
           <ul className="flex items-center">
-            <li className="px-3 py-2">
+            {/* <li className="px-3 py-2">
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -28,10 +28,10 @@ const Header = () => {
                 <IoHomeSharp className="text-xl" />
                 <span>Docs</span>
               </NavLink>
-            </li>
+            </li> */}
             <li className="px-3 py-2">
               <NavLink
-                to="/payment/qrcode"
+                to="/"
                 className={({ isActive }) =>
                   `font-semibold flex justify-center gap-1 ${isActive ? "text-sky-500" : "text-gray-600 hover:text-sky-600"}`
                 }
