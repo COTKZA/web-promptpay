@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { IoHomeSharp } from "react-icons/io5";
 import { MdMenu, MdOutlineQrCode2 } from "react-icons/md";
 import { RiQrScan2Line } from "react-icons/ri";
 import { NavLink } from "react-router";
@@ -87,7 +86,7 @@ const Header = () => {
 
             <nav className="flex-1 overflow-y-auto py-2">
               <ul className="flex flex-col">
-                <li>
+                {/* <li>
                   <NavLink
                     to="/"
                     onClick={() => setMenu(false)}
@@ -98,10 +97,10 @@ const Header = () => {
                     <IoHomeSharp className="text-xl" />
                     <span>Docs</span>
                   </NavLink>
-                </li>
+                </li> */}
                 <li>
                   <NavLink
-                    to="/payment/qrcode"
+                    to="/"
                     onClick={() => setMenu(false)}
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-6 py-3 font-medium transition-colors ${isActive ? "text-sky-600 bg-sky-50 border-r-4 border-sky-500" : "text-gray-600 hover:bg-gray-50 hover:text-sky-600"}`
